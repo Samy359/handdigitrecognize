@@ -25,11 +25,6 @@ function submit()
       'Neural Network Gradient (Backpropagation)', ...
     }, ...
     { ...
-      '5', ...
-      { 'nnCostFunction.m' }, ...
-      'Regularized Gradient', ...
-    }, ...
-  };
   conf.output = @output;
 
   submitWithConfiguration(conf);
@@ -51,13 +46,5 @@ function out = output(partId, auxstring)
     out = sprintf('%0.5f ', J);
   elseif partId == '3'
     out = sprintf('%0.5f ', sigmoidGradient(X));
-  elseif partId == '4'
-    [J, grad] = nnCostFunction(t, 2, 4, 4, Xm, ym, 0);
-    out = sprintf('%0.5f ', J);
-    out = [out sprintf('%0.5f ', grad)];
-  elseif partId == '5'
-    [J, grad] = nnCostFunction(t, 2, 4, 4, Xm, ym, 1.5);
-    out = sprintf('%0.5f ', J);
-    out = [out sprintf('%0.5f ', grad)];
   end 
 end
